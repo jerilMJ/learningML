@@ -1,3 +1,18 @@
+/*
+The perceptron is one of the old basic unit of a Neural Network. 
+See: https://en.wikipedia.org/wiki/Perceptron
+
+The code below is for creating a single perceptron and training it to classify linearly seperable inputs.
+The inputs given are OR, AND, a sample and XOR of which the first 3 are linearly seperable but the last is not (XOR).
+
+The aim of this program is to test the limitations of a single Perceptron and understand that:
+One perceptron alone can do only so much but with multiple perceptrons linked to each other, we can overcome the limitation of
+linear separation.
+
+References: Neural Networks, Fuzzy Logic and Evolutionary Algorithms, S. Rajasekaran, G.A Vijayalakshmi Pai
+			https://towardsdatascience.com/perceptron-the-artificial-neuron-4d8c70d5cc8d
+*/
+
 #include "perceptron.h"
 #include <iostream>
 #include <vector>
