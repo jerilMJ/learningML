@@ -4,6 +4,7 @@
 
 Perceptron::Perceptron(float eta, int epoch)
 {
+	srand(time(NULL));
 	m_epoch = epoch;
 	m_eta = eta;
 }
@@ -29,20 +30,18 @@ void Perceptron::train(std::vector<std::vector<float>> X, std::vector<float> Y)
 {
 	for (int i = 0; i < X[0].size() + 1; i++)
 	{
-		m_w.push_back(0);
+		float r = ((double)rand() / (RAND_MAX));
+		m_w.push_back(r);
 	}
-
+	std::cout << "Weights before training (random): " << std::endl;
+	printWeights();
 	for (int i = 0; i < m_epoch; i++)
 	{
-		//std::cout << "\nEpoch: " << i+1 << std::endl;
 		for (int j = 0; j < X.size(); j++)
 		{
 			int prediction = predict(X[j]);
 			float update = m_eta * (Y[j] - prediction);
 			m_w[0] += update;	// updating bias
-			//for (int x = 0; x < X[j].size(); x++)
-				//std::cout << std::setw(10) << X[j][x] << " ";
-			//std::cout << std::setw(10) << predicted << std::endl;
 			for (int k = 1; k < m_w.size(); k++)
 			{
 					m_w[k] += update * X[j][k - 1];
@@ -63,6 +62,7 @@ void Perceptron::printWeights()
 void Perceptron::printChart(std::vector<std::vector<float>> X, std::vector<float> Y)
 {
 	int width = 15;
+	std::cout << "\nChart of inputs & outputs: " << std::endl;
 	std::cout << std::setw(width) << "X1" << std::setw(width) << "X2" << std::setw(width) << "Predicted" << std::setw(width) << "Expected" << std::endl;
 	for (int i = 0; i < X.size(); i++)
 	{
