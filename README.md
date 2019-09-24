@@ -38,6 +38,7 @@ So how do the knobs get adjusted? It's the work of some savvy Maths which is bey
 
 Now we can do the same with an AND gate since it also produces linearly seperable outputs.
 
+![AND Gate](/assets/AND.png)
 ![AND Graph](/assets/AndTrained.png)
 
 .
