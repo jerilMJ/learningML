@@ -45,6 +45,8 @@ Now we can do the same with an AND gate since it also produces linearly seperabl
 So far, we've seen some great things from a single perceptron but it has some limitations. It cannot classify linearly non-seperable outputs as in the case of an XOR gate.
 If you try training a single perceptron to classify XOR outputs, it will produce erroneous results. Why? Lets see:
 
+This is the truth table for an XOR gate:
+
 ![XOR Gate](/assets/XOR.png)
 
 We can deduce that for separating the outputs we need such a configuration:
