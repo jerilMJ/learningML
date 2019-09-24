@@ -59,6 +59,13 @@ We can deduce that for separating the outputs we need such a configuration:
 So we need two lines(see-saws) to classify outputs for XOR. This means that we need one more perceptron.
 That's where the 'network' in Neural Networks comes from! It's a fascinating topic!
 
+## **What's in the future?**
+Exlporing backpropagation algorithms, various Neural Networks and other algorithms.
+Stuff like handwritten digit recognition, picture classification and more!
 
 
+## **Reference:**
+
+Neural Networks, Fuzzy Logic and Evolutionary Algorithms, S. Rajasekaran, G.A Vijayalakshmi Pai
+Neural Networks and Deep Learning, Michael Nielsen
 
