@@ -5,7 +5,7 @@ class Perceptron:
     def __init__(self, eta, epoch):
         self.eta = eta
         self.epoch = epoch
-        self.weights = np.zeros(3)
+        self.weights = np.random.rand(3)
         
     def netInput(self, X):
         weightedSum = self.weights[0]
