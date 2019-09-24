@@ -1,7 +1,9 @@
 # learningML
 This repo will contain all code that I write as I learn the basics and intermediates of AI and its subsets (Neural Networks, Deep Learning etc..). The code you find may be subject to further optimization with time.
+**Please forgive my wacky MS Paint skills..**
 
-# **Perceptron:**
+
+## **Perceptron:**
 
 The perceptron is one of the old but basic unit of a neaural network. The algorithm was developed first by Frank Rosenblatt and was made to be a linear classifier between two classes.
 i.e, it can predict whether or not an element belongs to one class or another after it is trained to do so.
