@@ -5,7 +5,7 @@ import random
 def sigmoid(z):
     '''
     Activation function
-    '''a
+    '''
     return 1.0/(1.0 + np.exp(-z))
 
 

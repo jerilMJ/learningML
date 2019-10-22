@@ -4,6 +4,23 @@
 #
 # Created by: PyQt5 UI code generator 5.13.0
 
+'''
+This is a pyQt GUI application to create training and test images for
+use with neural networks. I made this just for fun and to test if I could
+make a dataset and use it to train my neural network in identifying certain
+mathematical operators.
+
+The app uses data augmentation in the form of rotation and specific translations
+to generate duplicate but transformed images to decrease the time required to build
+a dataset.
+
+After opening, the user needs to first type a label for the data. Then they can start drawing.
+After drawing, they may wish to choose what all transformations to apply to augment the data.
+Options are available to save, clear the canvas, eliminate duplicate images, undo the last save
+and count the number of labels created. Most of the tasks are autonomous and thus the user only
+needs to draw each image and apply transformations and click save.
+'''
+
 import data_handler
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
@@ -11,6 +28,10 @@ from PyQt5.QtGui import QTransform
 
 
 class Canvas(QtWidgets.QLabel):
+    '''
+    The canvas(white) appearing in the main window of the app. The user can interact by drawing with the mouse.
+    Only black brush is set but can be changed by changing the code if needed.
+    '''
     def __init__(self):
         super().__init__()
         pixmap = QtGui.QPixmap(300, 300)
@@ -19,7 +40,8 @@ class Canvas(QtWidgets.QLabel):
 
         self.last_x, self.last_y = None, None
         self.count = data_handler.findFinalNumber("../data/")
-
+    
+    # Next two functions listens for mouse events and make up the painting.
     def mouseMoveEvent(self, e):
         if self.last_x is None: # First event.
             self.last_x = e.x()
@@ -59,6 +81,9 @@ class Canvas(QtWidgets.QLabel):
         self.update()
     
     def saveCanvas(self, fileName, options):
+        '''
+        Function to save the canvas image after applying chosen transformations.
+        '''
         self.stack = []
         if fileName == "":
             return
@@ -67,6 +92,7 @@ class Canvas(QtWidgets.QLabel):
         srcImg = srcImg.scaledToWidth(28)
         srcImg = srcImg.scaledToHeight(28)
 
+        # Rotate 90, 180, 270 degrees
         if 1 in options and 2 not in options:
             for angle in [90, 180, 270]:
                 img = srcImg.copy()
@@ -74,6 +100,8 @@ class Canvas(QtWidgets.QLabel):
                 tr.rotate(angle)
                 img = img.transformed(tr)
                 self.saveFile(fileName, img)
+                
+        # Rotate 180 degrees
         elif 2 in options and 1 not in options:
             for angle in [180]:
                 img = srcImg.copy()
@@ -81,18 +109,24 @@ class Canvas(QtWidgets.QLabel):
                 tr.rotate(angle)
                 img = img.transformed(tr)
                 self.saveFile(fileName, img)
+                
+        # Flip vertically
         if 3 in options:
             img = srcImg.copy()
             tr = QTransform()
             tr.scale(-1, 1)
             img = img.transformed(tr)
             self.saveFile(fileName, img)
+            
+        # Flip Horizontally
         if 4 in options:
             img = srcImg.copy()
             tr = QTransform()
             tr.scale(1, -1)
             img = img.transformed(tr)
             self.saveFile(fileName, img)
+            
+        # Translate picture right 5 pixels upto 20
         if 5 in options:
             for xshift in [5, 10, 15, 20]:
                 img = srcImg.copy()
@@ -115,6 +149,8 @@ class Canvas(QtWidgets.QLabel):
                 painter.drawImage(QtCore.QRect(xshift, 0, 25, 30), temp, QtCore.QRect(0, 0, 25, 30))
                 painter.end()
                 self.saveFile(fileName, img)
+                
+        # Translate picture down 5 pixels upto 20
         if 6 in options:
             for yshift in [5, 10, 15, 20]:
                 img = srcImg.copy()
@@ -143,6 +179,7 @@ class Canvas(QtWidgets.QLabel):
     def saveFile(self, fileName, img):
         self.count[fileName] += 1
         
+        # Change this to change the directory to save the images in.
         name = "../data/" + fileName + "_" + str(self.count[fileName]) + ".png"
         self.stack.append(name)
         if not(img.save(name)):
@@ -157,6 +194,10 @@ class Canvas(QtWidgets.QLabel):
 
 
 class Ui_MainWindow(QtWidgets.QMainWindow):
+    '''
+    The template of the window of the app created using Qt Designer.
+    Most of the code is pretty self-explanatory.
+    '''
     def __init__(self):
         super().__init__()
 
