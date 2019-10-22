@@ -1,6 +1,5 @@
 # Dataset Maker v1.0
 ### Made By: jerilMJ
-----------------------------------
 
 This is a pyQt GUI application to create training and test images for
 use with neural networks. I made this just for fun and to test if I could
@@ -33,7 +32,7 @@ Count labels button prints out the number of items of each label.
 The label numbers are generated smartly so there is no need to be concerned about overwriting
 other saves.
 
+
 ## Changelog:
-----------------------------------
 
 * v1.0: Deployed app with initial features(save, clear, eliminate dupes, undo last save and count labels)
