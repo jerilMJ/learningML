@@ -1,5 +1,4 @@
 # Mathematical Operators Recognition
--------------------------------
 
 These are a set of python code to implement a feedforward neural network for the recognition
 of the 4 main mathematical operators(+, -, x, /). 
@@ -8,8 +7,9 @@ reference to the code from Michael Nielssen's Neural Networks and Deep Learning 
 This was made to test the importance of good data for machine learning and the tweaking of parameters
 to increase a model's accuracy.
 
+
 ## How to use:
--------------------------------
+
 The parameters of the network can be changed to improve accuracy.
 Pull up terminal or cmd and open up the python IDE in the src directory
 Now type the following script:
@@ -27,7 +27,7 @@ Do note that this may take minutes depending upon your CPU/GPU and the network p
 
 
 ## References:
--------------------------------
+
 * Yotube series made by 3blue1brown on neural networks and deep learning
 * Neural Networks and Deep Learning, Michael Nielssen
 * Michael Nielssen's code: https://github.com/mnielsen/neural-networks-and-deep-learning

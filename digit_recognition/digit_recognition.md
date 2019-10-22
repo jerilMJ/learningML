@@ -1,13 +1,13 @@
 # Digit Recognition
--------------------------------
 
 These are a set of python code to implement a feedforward neural network for the recognition
 of handwritten digits. 
 The dataset used is the MNIST Dataset and the code was written with reference to the code 
 from Michael Nielssen's Neural Networks and Deep Learning web book and github repo.
 
+
 ## How to use:
--------------------------------
+
 The parameters of the network can be changed to improve accuracy.
 Pull up terminal or cmd and open up the python IDE in the src directory
 Now type the following script:
@@ -23,8 +23,9 @@ After the SGD function is called, the network should start to train and the resu
 for each epoch should start printing. 
 Do note that this may take minutes depending upon your CPU/GPU and the network parameters.
 
+
 ## References:
--------------------------------
+
 * Yotube series made by 3blue1brown on neural networks and deep learning
 * Neural Networks and Deep Learning, Michael Nielssen
 * Michael Nielssen's code: https://github.com/mnielsen/neural-networks-and-deep-learning
